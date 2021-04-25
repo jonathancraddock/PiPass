@@ -1,6 +1,10 @@
 # PiPass
 
-PiPass is a proof of concept for bulk password automation via RPi-Zero-W based USB keystroke injection. An example use-case could be the erasure and BIOS reset of several hundred laptops at the end of a hardware lease. It can be used in other ways, but you should bear in mind that it's not secure.
+PiPass is a proof of concept for bulk password automation via RPi-Zero-W based USB keystroke injection. An example use-case could be the erasure and BIOS reset of several hundred laptops at the end of a hardware lease, where unique and horrific system passwords have been set on every device. It can be used in other ways, but you should bear in mind that it's not secure.
+
+> P4wnP1_aloa : https://github.com/RoganDawes/P4wnP1_aloa  
+> RPi-Zero-WH : https://www.amazon.co.uk/dp/B08VHL6CZG  
+> Bulma : https://bulma.io/  
 
 #### *Connect RPi to laptop*
 ![](https://github.com/jonathancraddock/PiPass/blob/main/images/pipass-laptop-1.jpg)
@@ -12,7 +16,7 @@ The portable battery is not essential, but it lasts all day and avoids any delay
 
 The web interface validates the asset number, and you can view the password for cross-reference.
 
-## Concept
+## Detailed Description
 
 Coming soon... ;-)
 
