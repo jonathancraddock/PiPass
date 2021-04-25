@@ -66,6 +66,12 @@ For example: `.\inject.sh example`
 
 ### Footnotes
 
+Possible 'fix' for inconsistent timeout behaviour. See also: https://github.com/RoganDawes/P4wnP1_aloa/issues/296
+```bash
+timeout 1s P4wnP1_cli hid run -c 'press("SHIFT");delay(50);type("01234567890123456789")' -t 1
+```
+^- *command times out after 1 second if host is down, or cable is disconnected*
+
 PHP
 ```bash
 apt-get update
