@@ -20,6 +20,12 @@ Coming soon... ;-)
 
 &nbsp;  
 
+### USB Gadget Settings
+
+I found the default P4wnP1 was not accepted as a keyboard by my Lenovo laptop at the POST stage, and when initially entering the BIOS system password. I copied the following Vendor ID and Product ID from an old Lenovo keyboard, and switched off everything apart from the keyboard functionality. With these settings in place, it's been working fine on my Lenovo and Dell laptops.
+
+![](https://github.com/jonathancraddock/PiPass/blob/main/images/usb-gadget-settings.jpg)
+
 ### Bash scripts and 'special' characters
 
 Inserting a variable into a command that involves quotes and double-quotes seems to be regarded as a notorious gotcha. The following is a sample of the normal command line syntax:
