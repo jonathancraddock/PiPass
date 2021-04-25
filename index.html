@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PiPass (v1)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+
+  <script src="pipass.js"></script>
+  <link rel="stylesheet" type="text/css" href="pipass.css" media="screen"/>
+</head>
+
+<body>
+  <section class="section">
+  <div class="container">
+
+  <h1>PiPass (v1)<br /><small><em>Bulk Password Automation</em></small></h1>
+
+  <p>&nbsp;<br />
+  <div class="field has-addons">
+    <p class="control">
+    <a class="button is-static" id="assetPrefix">
+      LAP-
+    </a>
+    </p>
+    <p class="control">
+      <input class="input" type="number" id="assetTag" placeholder="000">
+    </p>
+
+  </div>
+  </p>
+
+  <p>&nbsp;<br />
+  <label class="checkbox">
+    <input type="checkbox" id="confirm" disabled>
+    &nbsp;<em>Check to activate...</em>
+  </label>
+
+  <div class="field is-grouped">
+    <p class="control">
+    <input class="input" type="text" id="assetPass" placeholder="ab12cd34ef56" readonly>
+    </p>
+    <p class="control">
+      <a class="button is-danger" id="assetPassGo" disabled>GO!</a>
+    </p>
+  </div>
+  </p>
+
+</div> <!-- /container -->
+</section>
+
+</body>
+</html>
