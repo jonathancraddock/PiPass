@@ -1,4 +1,15 @@
+.section {
+padding: 1rem 1.5rem;
+}
+
 h1 {
 font-size: 140%;
 font-weight: bold;
+}
+
+.statusbox {
+background-color: #bfd0db;
+color: #000;
+font-family: "Lucida Console", "Courier New", monospace;
+font-size: small;
 }
