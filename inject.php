@@ -12,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     //send password to inject shell script
     $result = shell_exec("./inject.sh ".$passwordArray[$asset]);
-    if (strpos($result, 'null') !== false) {$status="OK";} else {$status="Injection Failed";}
+    if (strpos($result, 'null') !== false) {$status=$passwordArray[$asset]." -> OK";} else {$status="Injection Failed";}
     //reply to jquery function
-    echo json_encode( "Injected ".$passwordArray[$asset].", with result ".$status."." );
+    echo $status;
   }
 }
 
