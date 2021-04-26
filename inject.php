@@ -1,6 +1,6 @@
 <?php
 
-//read passwords from JSON file
+//read password from JSON file
 $passwordFile = file_get_contents("passwords.json");
 $passwordArray = json_decode($passwordFile, true);
 
@@ -11,9 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "No Asset";
   } else {
     //send password to inject shell script
-    shell_exec("./inject.sh ".$passwordArray[$asset]);
+    $result = shell_exec("./inject.sh ".$passwordArray[$asset]);
+    if (strpos($result, 'null') !== false) {$status="OK";} else {$status="Injection Failed";}
     //reply to jquery function
-    echo json_encode( "Injecting- ".$passwordArray[$asset]." -end" );
+    echo json_encode( "Injected ".$passwordArray[$asset].", with result ".$status."." );
   }
 }
 
