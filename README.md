@@ -50,7 +50,17 @@ The laptop is switched on, the boot process is interrupted, and you're prompted 
 
 ### Setting up the P4wnP1
 
+(Draft notes)
 
+* Download latest P4wnP1 image from -> https://github.com/RoganDawes/P4wnP1_aloa/releases  
+* Write to SD card and boot the RPi-Zero
+* Join its WiFi SSID, see notes here -> https://github.com/RoganDawes/P4wnP1_aloa
+* Default address is -> http://172.24.0.1:8000
+* Join the P4wnPi to the temporary network that you're using for laptop erasures
+* Set the USB gadget settings as shown below
+* *Your mobile phone may need to be on the same SSID / VLAN*
+* SSH to the Rpi-Zero and install PHP (see below) and start Apache
+* Copy the web interface files to /var/www/html (update password.json with assets and BIOS passwords)
 
 ### USB Gadget Settings
 
