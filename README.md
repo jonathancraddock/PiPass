@@ -1,12 +1,15 @@
-# PiPass
+# PiPass (v1)
 
-PiPass is a proof of concept for bulk password automation via RPi-Zero-W based USB keystroke injection. An example use-case could be the erasure and BIOS reset of several hundred laptops at the end of a hardware lease, where unique and horrific system passwords have been set on every device. It can be used in other ways, but you should bear in mind that it's no more secure than if you wrote a load of passwords on a sheet of paper, and should be handled accordingly.
+PiPass (rhymes with "bypass") is an implementation of bulk password automation via RPi-Zero-W based USB keystroke injection, controlled from a locally hosted web interface.
+
+An example use-case could be the erasure and BIOS reset of several hundred laptops at the end of a hardware lease where unique and horrific system passwords have been set on every device. It could be used in other ways, but you should bear in mind that it's no more secure than if you wrote a load of passwords on a sheet of paper and should be handled accordingly.
 
 > P4wnP1_aloa : https://github.com/RoganDawes/P4wnP1_aloa  
 > RPi-Zero-WH : https://www.amazon.co.uk/dp/B08VHL6CZG  
+> jQuery : https://jquery.com/  
 > Bulma : https://bulma.io/  
 
-The build is P4wnP1 A.L.O.A and a Raspberry Pi Zero-W is required, for its WiFi support. I'm using Bulma for the interface; it's light, and mobile friendly.
+The hardware uses the Kali based "P4wnP1 A.L.O.A" build on a Raspberry Pi Zero-W; WiFi is required. I'm using Bulma and jQuery for the web interface, interacting with PHP and a BASH script.
 
 #### *Updated Web Interface* (Mon 26th Apr)
 ![](https://github.com/jonathancraddock/PiPass/blob/main/images/web-interface.jpg)
@@ -26,16 +29,16 @@ The convential approach to this task is that a list of asset numbers (or serial 
 
 ```text
 ...
-LAP-254, zfKX8cryUgJuHajk
-LAP-255, VscuXQ8MrbLqTJNh
-LAP-256, 9KFCHBAvYXD6ezas
-LAP-257, V4FW3SKAMhbDPmtJ
+LAP-00254, zfKX8cryUgJuHajk
+LAP-00255, VscuXQ8MrbLqTJNh
+LAP-00256, 9KFCHBAvYXD6ezas
+LAP-00257, V4FW3SKAMhbDPmtJ
 ...
 ```
 
-The laptop is switched on, the boot is interrupted, and you're prompted to type in a BIOS password. Find the BIOS security settings, and to clear the system password you're prompted for the password, again. Then you clear the system password, reset the BIOS to its defaults, and finally boot into DBAN, Blancco, or your erasure method of choice. It's simple, but the password lookup and entry is tedious.
+The laptop is switched on, the boot process is interrupted, and you're prompted to type in a BIOS password. Find the BIOS security settings, and to clear the system password you're prompted for the password, again. Then you clear the system password, reset the BIOS to its defaults, and finally boot into DBAN, Blancco, or your erasure method of choice. It's simple, but the password lookup and entry is tedious.
 
-That's the pain-point that PiPass is aiming to aleviate.
+**That's the pain-point that PiPass is aiming to aleviate.**
 
 &nbsp;  
 
