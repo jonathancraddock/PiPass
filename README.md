@@ -5,22 +5,24 @@ PiPass (rhymes with "bypass") is an implementation of bulk password automation v
 An example use-case could be the erasure and BIOS reset of several hundred laptops at the end of a hardware lease where unique and horrific system passwords have been set on every device. It could be used in other ways, but you should bear in mind that it's no more secure than if you wrote a load of passwords on a sheet of paper and should be handled accordingly.
 
 > P4wnP1_aloa : https://github.com/RoganDawes/P4wnP1_aloa  
+> Kali : https://www.kali.org/  
 > RPi-Zero-WH : https://www.amazon.co.uk/dp/B08VHL6CZG  
 > jQuery : https://jquery.com/  
 > Bulma : https://bulma.io/  
 
-The hardware uses the Kali based "P4wnP1 A.L.O.A" build on a Raspberry Pi Zero-W; WiFi is required. I'm using Bulma and jQuery for the web interface, interacting with PHP and a BASH script.
+The hardware uses a Kali based "P4wnP1 A.L.O.A" build on a Raspberry Pi Zero-W. I'm using Bulma and jQuery for the web interface, interacting with PHP and a BASH script in the backend.
 
 #### *Updated Web Interface* (Mon 26th Apr)
 ![](https://github.com/jonathancraddock/PiPass/blob/main/images/web-interface.jpg)
 Interaction with the web interface is kept simple. Asset numbers are validated against the password list in realtime. Matched assets have their password displayed. To avoid accidental injection, the "Go!" button is enabled only after the checkbox is marked. If the keystroke injection fails, a notification is displayed. Typically this takes around 1 second. If the keystroke injection is successful, a confirmation message is displayed almost immediately.
 
 #### *Connect RPi to laptop*
-![](https://github.com/jonathancraddock/PiPass/blob/main/images/pipass-laptop-1.jpg)
+<p align="center"><img src="https://github.com/jonathancraddock/PiPass/blob/main/images/pipass-laptop-1.jpg" width="60%" height="60%" /></p>
+
 The portable battery is not essential, but it lasts all day and avoids any delay while the WiFi reassociates. The RPi-Zero is hosting a simple web interface.
 
 #### *Enter asset number and send keystrokes*
-![](https://github.com/jonathancraddock/PiPass/blob/main/images/pipass-phone-1.jpg)
+<p align="center"><img src="https://github.com/jonathancraddock/PiPass/blob/main/images/pipass-phone-1.jpg" width="60%" height="60%" /></p>
 The web interface validates the asset number, and you can view the password for cross-reference. Press "Go!" to inject the keystrokes.
 
 ## Detailed Description
@@ -45,6 +47,10 @@ The laptop is switched on, the boot process is interrupted, and you're prompted 
 &nbsp;  
 
 ...to be continued! ;-)
+
+### Setting up the P4wnP1
+
+
 
 ### USB Gadget Settings
 
