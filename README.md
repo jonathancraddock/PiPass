@@ -53,20 +53,42 @@ The laptop is switched on, the boot process is interrupted, and you're prompted 
 (Draft notes)
 
 * Download latest P4wnP1 image from -> https://github.com/RoganDawes/P4wnP1_aloa/releases  
-* Write to SD card and boot the RPi-Zero
-* Join its WiFi SSID, see notes here -> https://github.com/RoganDawes/P4wnP1_aloa
-* Default address is -> http://172.24.0.1:8000
-* Join the P4wnPi to the temporary network that you're using for laptop erasures
-* Set the USB gadget settings as shown below
-* *Your mobile phone may need to be on the same SSID / VLAN*
-* SSH to the Rpi-Zero and install PHP (see below) and start Apache
-* Copy the web interface files to /var/www/html (update password.json with assets and BIOS passwords)
+* Write to SD card and boot the RPi-Zero -> https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/  
+* Join its WiFi SSID from your laptop, see notes here -> https://github.com/RoganDawes/P4wnP1_aloa  
+^- *SSID=*`P4wnP1` | *PSK=*`MaMe82-P4wnP1`
+* Default web address of the P4wnP1 is -> http://172.24.0.1:8000  
+* Join the P4wnPi to your own WiFi SSID  
+^- *for my purposes, I joined it to the same SSID as my mobile phone, for easy access to my web front-end*
+* Reconnect to the P4wnP1, eg/ http://192.168.1.nnn:8000  
+* Set the USB gadget settings as shown in the section below   
+* SSH to the Rpi-Zero and install PHP (see below) and enable/start Apache  
+^- *default credentials `root` | `toor`*
+* Copy the web interface files to /var/www/html (update password.json with your own assets and BIOS passwords)  
 
 ### USB Gadget Settings
 
-I found the default P4wnP1 was not accepted as a keyboard by my Lenovo laptop at the POST stage, and when initially entering the BIOS system password. I copied the following Vendor ID and Product ID from an old Lenovo keyboard, and switched off everything apart from the keyboard functionality. With these settings in place, it's been working fine on my Lenovo and Dell laptops.
+I found the default P4wnP1 was not accepted as a keyboard by my Lenovo laptop at the POST stage, or when initially entering the BIOS system password. I copied the following Vendor ID and Product ID from an old Lenovo keyboard, and switched off everything apart from the keyboard functionality. With these settings in place, it's been working fine on my Lenovo and Dell laptops.
 
 ![](https://github.com/jonathancraddock/PiPass/blob/main/images/usb-gadget-settings.jpg)
+
+### Dependencies
+
+**PHP**
+```bash
+apt-get update
+apt-get install php libapache2-mod-php
+```
+
+**Apache (Testing)**
+```bash
+systemctl start apache2
+```
+
+**Apache (Live)**
+```bash
+systemctl enable apache2
+```
+^- *assuming that you want Apache to start automatically*
 
 ### Bash scripts and 'special' characters
 
@@ -102,14 +124,3 @@ I've refined the BASH script as follows, and early testing suggests it's behavin
 timeout 1s P4wnP1_cli hid run -c 'press("SHIFT");delay(50);type('\"$1\"')' -t 1 | tail -n 1
 ```
 ^- *the response "null" indicates a successful injection, and "Terminated" indicates the host is down or disconnected*
-
-PHP
-```bash
-apt-get update
-apt-get install php libapache2-mod-php
-```
-
-Apache (Testing)
-```bash
-systemctl start apache2
-```
