@@ -44,17 +44,18 @@ var searchAsset=null;
   
   //send asset to USB inject script
   $("#assetPassGo").click(function(){
-    $('#lastStatus').html("");
-    $.post("inject.php",
-    {
-      asset: searchAsset
-    },
-    function(data,status){
-      //alert("PHP Status: " + status + "\nBASH Status: " + data);
-      var dt = new Date();
-      var utcDate = dt.toUTCString();
-      $('#lastStatus').html(utcDate + "<br />PHP: " + status + "<br />BASH: " + data);
-    });
+    if( $('#confirm').prop('checked')==true ) {
+      $('#lastStatus').html("");
+      $.post("inject.php",
+      {
+        asset: searchAsset
+      },
+      function(data,status){
+        var dt = new Date();
+        var utcDate = dt.toUTCString();
+        $('#lastStatus').html(utcDate + "<br />PHP: " + status + "<br />BASH: " + data);
+      });
+    }
   });
 
 });
