@@ -44,30 +44,41 @@ The laptop is switched on, the boot process is interrupted, and you're prompted 
 
 &nbsp;  
 
-&nbsp;  
+(*Draft, to be continued*)
 
-...to be continued! ;-)
+&nbsp;  
 
 ### Setting up the P4wnP1
 
-(Draft notes)
+(*Draft notes*)
 
 * Download latest P4wnP1 image from -> https://github.com/RoganDawes/P4wnP1_aloa/releases  
 * Write to SD card and boot the RPi-Zero -> https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/  
 * Join its WiFi SSID from your laptop, see notes here -> https://github.com/RoganDawes/P4wnP1_aloa  
 ^- *SSID=*`P4wnP1` | *PSK=*`MaMe82-P4wnP1`
 * Default web address of the P4wnP1 is -> http://172.24.0.1:8000  
-* Join the P4wnPi to your own WiFi SSID  
+* In **WiFi Settingss** join the P4wnPi to your own WiFi SSID  
 ^- *for my purposes, I joined it to the same SSID as my mobile phone, for easy access to my web front-end*
+* Store the new WiFi settings as the name `startup` and click **deploy**  
 * Reconnect to the P4wnP1, eg/ http://192.168.1.nnn:8000  
-* Set the USB gadget settings as shown in the section below   
-* SSH to the Rpi-Zero and install PHP (see below) and enable/start Apache  
+* Set the USB gadget settings as shown in the [section below](#usb-gadget-settings)  
+* Store the gadget settings as the name `startup` and click **deploy**
+* SSH to the Rpi-Zero and install PHP ([notes here](#dependencies)) and enable/start Apache  
 ^- *default credentials `root` | `toor`*
 * Copy the web interface files to /var/www/html (update password.json with your own assets and BIOS passwords)  
+^- *remember `chmod +x inject.sh` to make the BASH script executable*
 
 ### USB Gadget Settings
 
 I found the default P4wnP1 was not accepted as a keyboard by my Lenovo laptop at the POST stage, or when initially entering the BIOS system password. I copied the following Vendor ID and Product ID from an old Lenovo keyboard, and switched off everything apart from the keyboard functionality. With these settings in place, it's been working fine on my Lenovo and Dell laptops.
+
+```text
+Vendor ID: 0x0461
+Product ID: 0x4e04
+Manufacturer Name: Lenovo
+Product Name: Keyboard
+Serial Number: 20900200
+```
 
 ![](https://github.com/jonathancraddock/PiPass/blob/main/images/usb-gadget-settings.jpg)
 
@@ -79,16 +90,24 @@ apt-get update
 apt-get install php libapache2-mod-php
 ```
 
-**Apache (Testing)**
+**Apache (*Testing*)**
 ```bash
 systemctl start apache2
 ```
 
-**Apache (Live)**
+**Apache (*Live*)**
 ```bash
 systemctl enable apache2
 ```
 ^- *assuming that you want Apache to start automatically*
+
+&nbsp;  
+
+---
+
+## Footnotes
+
+Included here just for information.
 
 ### Bash scripts and 'special' characters
 
@@ -96,6 +115,7 @@ Inserting a variable into a command that involves quotes and double-quotes seems
 
 ```bash
 P4wnP1_cli hid run -c 'type("example")'
+
 ```
 
 In this case, a variable `$1` needs to replace the `example` phrase, and the following escaping appears to work consistently:
@@ -107,7 +127,7 @@ P4wnP1_cli hid run -t 1 -c 'type('\"$1\"')'
 
 For example: `.\inject.sh example`
 
-### Footnotes
+### Inconsistent Timeout Behaviour
 
 Possible 'fix' for inconsistent timeout behaviour. See also: https://github.com/RoganDawes/P4wnP1_aloa/issues/296
 ```bash
