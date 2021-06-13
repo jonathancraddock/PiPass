@@ -68,6 +68,8 @@ The laptop is switched on, the boot process is interrupted, and you're prompted 
 * Copy the web interface files to /var/www/html (update password.json with your own assets and BIOS passwords)  
 ^- *remember `chmod +x inject.sh` to make the BASH script executable*
 
+> The following is a great online tool for converting CSV->JSON, but I've found you can paste columns straight from LibreOffice Calc (make sure you have a header row) and either way you get valid JSON out of it. Link here: https://csvjson.com/csv2json
+
 ### USB Gadget Settings
 
 I found the default P4wnP1 was not accepted as a keyboard by my Lenovo laptop at the POST stage, or when initially entering the BIOS system password. I copied the following Vendor ID and Product ID from an old Lenovo keyboard, and switched off everything apart from the keyboard functionality. With these settings in place, it's been working fine on my Lenovo and Dell laptops.
