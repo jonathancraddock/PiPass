@@ -25,6 +25,8 @@ The portable battery is not essential, but it lasts all day and avoids any delay
 <p align="center"><img src="https://github.com/jonathancraddock/PiPass/blob/main/images/pipass-phone-1.jpg" width="60%" height="60%" /></p>
 The web interface validates the asset number, and you can view the password for cross-reference. Press "Go!" to inject the keystrokes.
 
+> h/t to [@stevenhorner](https://github.com/stevenhorner) for spotting issue with QWERTZ keybaord layout!
+
 ## Detailed Description
 
 The convential approach to this task is that a list of asset numbers (or serial numbers) is supplied, along with the corresponding passwords.
