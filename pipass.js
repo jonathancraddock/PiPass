@@ -1,6 +1,10 @@
 $( document ).ready(function() {
 
+//laptop asset number
 var searchAsset=null;
+
+//initiate a heartbeat every second
+var listening = window.setInterval(pipassListen, 1000);
 
   //load password list
   var passwords = (function () {
@@ -17,6 +21,18 @@ var searchAsset=null;
     return json;
   })();
 
+  //is PiPass listening?
+  //change background colour of status box to indicate potential problem
+  function pipassListen() {
+    $.ajax({
+      type: "POST",
+      url: 'listen.php',
+      timeout: 250,
+      error: function() { $('#lastStatus').css('background-color', '#dbc2bf'); },
+      success: function() { $('#lastStatus').css('background-color', '#c1dbbf'); }
+    });
+  }
+  
   //search for asset
   $('#assetTag').on("input", function(){
     searchAsset = $(this).val();
