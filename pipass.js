@@ -4,7 +4,7 @@ $( document ).ready(function() {
 var searchAsset=null;
 
 //initiate a heartbeat every second
-var listening = window.setInterval(pipassListen, 1000);
+var listening = window.setInterval(pipassListen, 2000);
 
   //load password list
   var passwords = (function () {
@@ -27,7 +27,7 @@ var listening = window.setInterval(pipassListen, 1000);
     $.ajax({
       type: "POST",
       url: 'listen.php',
-      timeout: 250,
+      timeout: 1000,
       error: function() { $('#lastStatus').css('background-color', '#dbc2bf'); },
       success: function() { $('#lastStatus').css('background-color', '#c1dbbf'); }
     });
