@@ -3,7 +3,7 @@ $( document ).ready(function() {
 //laptop asset number
 var searchAsset=null;
 
-//initiate a heartbeat every second
+//initiate a heartbeat every 2 seconds
 var listening = window.setInterval(pipassListen, 2000);
 
   //load password list
